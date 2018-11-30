@@ -5,7 +5,7 @@
 
     <version>0.0.1</version>
     <description>
-        Show the type of an expression in TypeScript. For WebFlow.
+        Show the type of an expression in TypeScript. For WebStorm.
     </description>
 
     <depends>com.intellij.modules.platform</depends>
