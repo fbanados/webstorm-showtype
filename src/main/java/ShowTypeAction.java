@@ -1,3 +1,4 @@
+        import com.google.gson.JsonObject;
         import com.intellij.lang.typescript.compiler.TypeScriptCompilerService;
         import com.intellij.lang.typescript.compiler.languageService.protocol.commands.TypeScriptFileLocationRequestArgs;
         import com.intellij.lang.javascript.service.protocol.LocalFilePath;
@@ -51,7 +52,10 @@
                                 currentFile,
                                 caret.getLogicalPosition())
                         ),
-                        (serviceObject, answer) -> answer.getElement().getAsJsonObject("body").get("displayString").getAsString()
+                        (serviceObject, answer) ->
+                             answer.getElement().get("success").getAsBoolean() ?
+                                     answer.getElement().getAsJsonObject("body").get("displayString").getAsString() :
+                                     answer.getElement().get("message").getAsString()
                         );
                 if (result != null) {
                     showFutureString(project, result, caret);
