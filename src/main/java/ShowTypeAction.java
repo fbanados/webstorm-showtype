@@ -1,5 +1,7 @@
         import com.google.gson.JsonObject;
+        import com.intellij.lang.javascript.dialects.TypeScriptLanguageDialect;
         import com.intellij.lang.typescript.compiler.TypeScriptCompilerService;
+        import com.intellij.lang.typescript.compiler.TypeScriptServiceHighlightingPassFactory;
         import com.intellij.lang.typescript.compiler.languageService.protocol.commands.TypeScriptFileLocationRequestArgs;
         import com.intellij.lang.javascript.service.protocol.LocalFilePath;
         import com.intellij.openapi.actionSystem.*;
@@ -34,6 +36,15 @@
                 return args;
             }
 
+
+            public void update(@NotNull AnActionEvent e) {
+                // Check whether we should show the option at all on the menu
+                if (e.getData(LangDataKeys.LANGUAGE) instanceof TypeScriptLanguageDialect){
+                    e.getPresentation().setVisible(true);
+                } else {
+                    e.getPresentation().setVisible(false);
+                }
+            }
             public void actionPerformed(@NotNull AnActionEvent event) {
                 Project project = event.getProject();
                 VirtualFile currentFile = event.getData(LangDataKeys.PSI_FILE).getVirtualFile();
