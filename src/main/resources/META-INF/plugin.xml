@@ -8,23 +8,16 @@
         Show the type of an expression in TypeScript. For WebFlow.
     </description>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
     <depends>JavaScript</depends>
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
     </extensions>
 
     <actions>
-        <group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">
-            <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="Myplugin.Textboxes" class="ShowTypeAction" text="Hello" description="Says hello"/>
-        </group>
-
+        <action id="ShowType.Menu" class="ShowTypeAction" text="Show TypeScript Type..." description="Shows the type at current point.">
+            <add-to-group group-id="EditorPopupMenu" relative-to-action="CopyReference" anchor="before"/>
+            <add-to-group group-id="AnalyzeMenu" relative-to-action="InspectCodeGroup" anchor="before"/>
+        </action>
     </actions>
 </idea-plugin>
