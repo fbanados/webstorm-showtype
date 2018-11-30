@@ -1,9 +1,9 @@
 <idea-plugin>
     <id>com.ubc.spl.showtype</id>
     <name>TypeScript ShowType</name>
-    <vendor email="fbanados@cs.ubc.ca" url="http://cs.ubc.ca/~fbanados">Felipe Bañados Schwerter</vendor>
+    <vendor email="fbanados@cs.ubc.ca" url="http://cs.ubc.ca/~fbanados">Felipe Banados Schwerter</vendor>
 
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1</version>
     <description>
         Show the type of an expression in TypeScript. For WebFlow.
     </description>
@@ -13,7 +13,9 @@
     <!-- uncomment to enable plugin in all products
     <depends>com.intellij.modules.lang</depends>
     -->
+    <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.modules.lang</depends>
+    <depends>JavaScript</depends>
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
@@ -23,5 +25,6 @@
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action id="Myplugin.Textboxes" class="HelloAction" text="Hello" description="Says hello"/>
         </group>
+
     </actions>
 </idea-plugin>

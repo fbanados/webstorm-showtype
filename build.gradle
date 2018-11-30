@@ -1,5 +1,4 @@
 plugins {
-    id 'java'
     id 'org.jetbrains.intellij' version '0.3.12'
 }
 
@@ -17,9 +16,11 @@ dependencies {
 }
 
 intellij {
-    version '2018.3',
-    alternativeIdePath '/Applications/WebStorm.app'
+    pluginName 'showtype'
+    version 'IU-2018.3'
+    plugins = ['JavaScriptLanguage']
 }
+
 patchPluginXml {
     changeNotes """
       Add change notes here.<br>
