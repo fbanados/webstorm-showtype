@@ -66,7 +66,8 @@
                     ShowTypeAction.showBaloon(
                             popupFactory
                                     .createDialogBalloonBuilder(new JLabel(message),"TypeScript Type Info")
-                                    .setHideOnAction(true),
+                                    .setHideOnAction(true)
+                                    .setHideOnClickOutside(true),
                             caret.getEditor());
                 } catch (TimeoutException e){
                     ShowTypeAction.showBaloon(
